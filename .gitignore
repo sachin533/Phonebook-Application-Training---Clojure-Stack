@@ -1,0 +1,18 @@
+# Clojure
+.cpcache/
+.classpath
+.lsp/
+.clj-kondo/.cache/
+pom.xml
+
+# shadow-cljs / Node
+.shadow-cljs/
+node_modules/
+public/js/
+
+# local configuration (never commit secrets)
+.env
+
+# misc
+*.class
+*.log

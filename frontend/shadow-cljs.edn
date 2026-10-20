@@ -1,0 +1,18 @@
+{:source-paths ["src"]
+
+ :dependencies [[reagent "2.0.1"]]
+
+ ;; serves ./public at http://localhost:8080 and reverse-proxies any path
+ ;; that is not a local file (e.g. /api/*, /health) to the Clojure API.
+ ;; This keeps the UI and API same-origin - locally and behind a tunnel -
+ ;; so no CORS is needed for browser calls.
+ :dev-http {8080 {:root            "public"
+                  :proxy-url       "http://localhost:3000"
+                  :use-index-files true}}
+
+ :builds
+ {:app {:target    :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+        :modules   {:main {:init-fn phonebook.ui.core/init}}
+        :devtools  {:after-load phonebook.ui.core/mount!}}}}

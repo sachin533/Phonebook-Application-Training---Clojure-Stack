@@ -1,0 +1,19 @@
+{:paths ["src"]
+
+ :deps {org.clojure/clojure        {:mvn/version "1.12.6"}
+        ring/ring-core             {:mvn/version "1.15.5"}
+        ring/ring-jetty-adapter    {:mvn/version "1.15.5"}
+        metosin/reitit             {:mvn/version "0.11.0"}
+        metosin/muuntaja           {:mvn/version "0.6.12"}
+        metosin/malli              {:mvn/version "0.20.3"}
+        com.github.seancorfield/next.jdbc {:mvn/version "1.4.70"}
+        com.zaxxer/HikariCP        {:mvn/version "6.3.0"}
+        com.mysql/mysql-connector-j {:mvn/version "9.3.0"}
+        buddy/buddy-hashers        {:mvn/version "2.0.167"}}
+
+ :aliases {;; clj -M:run
+           :run {:main-opts ["-m" "phonebook.core"]}
+
+           ;; clj -M:seed  (create demo user + 500+ fictional contacts)
+           :seed {:main-opts ["-m" "phonebook.seed"]}}
+}
